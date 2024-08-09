@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RappiCard Legacy</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <img class="background" src="./background.png" alt="" />
+    <p class="close-button">X</p>
+    <div class="caracter-modal">
+      <h1>¡GANASTE!</h1>
+      <lottie-player
+        id="Ajolote-Level-1-Animacion"
+        src="./Ajolote-Nivel-2-Animacion.json"
+        background="transparent"
+        speed="1"
+        direction="2"
+        mode="normal"
+        autoplay
+        loop
+      ></lottie-player>
+      <div class="recompensa-container">
+        <p class="title">Recompensa</p>
+        <hr />
+        <div class="recompensa-description">
+          <p>Tienes 3% de chashback del 20 al 28 de Junio.</p>
+        </div>
+      </div>
+      <button>Usar mi promo</button>
+    </div>
+    <div id="carcater-modal-triste" class="caracter-modal">
+      <h1>AJO Te extraña</h1>
+      <img src="./AJO-LVL-1-TRISTE.png" alt="" />
+      <div class="recompensa-container">
+        <div class="recompensa-description">
+          <p>. . .</p>
+        </div>
+      </div>
+      <button>Regresar</button>
+    </div>
+
+    <!-- Inician los niveles -->
+    <div class="mainPage-container">
+      <img class="img-title" src="./Rappicard-Legacy.png" alt="" />
+      <div class="mision-actual-container">
+        <p class="mision-header">Misión Actual</p>
+        <hr />
+        <p>Haz una compra a MSI</p>
+      </div>
+      <div class="progress-container">
+        <div class="column caracter-column">
+          <div id="caracter-lvl-1" class="caracter-container">
+            <img id="ajolote-1" class="caracter" src="./AJO-LVL-1.png" alt="" />
+            <div class="caracter-description">
+              <span>Newbie</span>
+            </div>
+          </div>
+          <div id="caracter-lvl-2" class="caracter-container">
+            <lottie-player
+              id="ajolote-2-discover-animation"
+              class="caracter-animation caracter"
+              src="./Nivel-2.json"
+              background="transparent"
+              speed="1"
+              direction="2"
+              mode="normal"
+            ></lottie-player>
+            <div class="caracter-description">
+              <span>Aprendiz</span>
+            </div>
+          </div>
+          <div id="caracter-lvl-3" class="caracter-container">
+            <lottie-player
+              id="ajolote-3-discover-animation"
+              class="caracter-animation caracter"
+              src="./Nivel-3.json"
+              background="transparent"
+              speed="1"
+              direction="2"
+              mode="normal"
+            ></lottie-player>
+            <div class="caracter-description">
+              <span>Amateur</span>
+            </div>
+          </div>
+          <div id="caracter-lvl-4" class="caracter-container">
+            <lottie-player
+              id="ajolote-4-discover-animation"
+              class="caracter-animation caracter"
+              src="./Nivel-4.json"
+              background="transparent"
+              speed="1"
+              direction="2"
+              mode="normal"
+            ></lottie-player>
+            <div class="caracter-description">
+              <span>Wizard</span>
+            </div>
+          </div>
+        </div>
+        <div class="column rewards-column">
+          <div id="progress-rewards" class="progress">
+            <img class="progressBar" src="./progressBar-Level-2.png" alt="" />
+          </div>
+          <div class="progressBar-rewards">
+            <div class="lvl-1-rewards rewards">
+              <p>Premios</p>
+              <ul>
+                <li>cashback</li>
+                <li>MSI</li>
+              </ul>
+            </div>
+            <div class="lvl-2-rewards rewards">
+              <p>Premios</p>
+              <ul>
+                <li>cashback</li>
+                <li>MSI</li>
+              </ul>
+            </div>
+            <div class="lvl-3-rewards rewards">
+              <p>Premios</p>
+              <ul>
+                <li>cashback</li>
+                <li>MSI</li>
+              </ul>
+            </div>
+            <div class="lvl-4-rewards rewards">
+              <p>Premios</p>
+              <ul>
+                <li>cashback</li>
+                <li>MSI</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button>Siguiente</button>
+    </div>
+  </body>
+  <script>
+    let object = {
+      resultado: {
+        isFirstTime: true
+      },
+      metaActual:""
+    }
+    let currentLvl = 5;
+
+    function levelUp(level) {
+      document.getElementById(`ajolote-${level}-discover-animation`).play();
+      setTimeout(() => {
+        document.querySelector(".caracter-modal").style.display = "flex";
+        setTimeout(() => {
+          document.querySelector(".caracter-modal").style.opacity = 1;
+        }, 100);
+      }, 5000);
+    }
+    const AddEmptyLevelLoop = () => {
+      //convertir a crear el elemento en vez de copiar el nodo ("esta creando uno rellenado")
+      let progressBoxContainer = document.getElementById("progress-rewards");
+      let progressCaracterContainer =
+        document.querySelector(".caracter-column");
+      let progressRewardsContainer = document.querySelector(
+        ".progressBar-rewards"
+      );
+      // Crear el elemento <img>
+      let progressEmptyBox = document.createElement("img");
+
+      // Establecer atributos del elemento
+      progressEmptyBox.id = "firstLoopChild";
+      progressEmptyBox.className = "progress-loop-part";
+      progressEmptyBox.src = "./loop-part.png";
+      progressEmptyBox.alt = "";
+      let caracterContainer = document.createElement("div");
+
+      // Establecer la clase para el <div>
+      caracterContainer.className = "caracter-container";
+
+      // Crear el elemento <lottie-player>
+      let lottiePlayer = document.createElement("lottie-player");
+
+      // Establecer atributos para <lottie-player>
+      lottiePlayer.id = "ajolote-4-discover-animation";
+      lottiePlayer.className = "caracter-animation caracter";
+      lottiePlayer.setAttribute("src", "./Nivel-4.json");
+      lottiePlayer.setAttribute("background", "transparent");
+      lottiePlayer.setAttribute("speed", "1");
+      lottiePlayer.setAttribute("direction", "2");
+      lottiePlayer.setAttribute("mode", "normal");
+
+      // Crear el elemento <div> para la descripción
+      let caracterDescription = document.createElement("div");
+      caracterDescription.className = "caracter-description";
+
+      // Crear el elemento <span> dentro de la descripción
+      let spanElement = document.createElement("span");
+      spanElement.textContent = "Wizard";
+
+      // Anidar el <span> dentro de la descripción
+      caracterDescription.appendChild(spanElement);
+      caracterContainer.appendChild(lottiePlayer);
+      caracterContainer.appendChild(caracterDescription);
+
+      // Crear el elemento <div> principal
+      let rewardsLoop = document.createElement("div");
+
+      // Establecer atributos para el <div>
+      rewardsLoop.id = "rewards-loop";
+      rewardsLoop.className = "lvl-4-rewards rewards rewards-loop";
+
+      // Crear el elemento <p> y establecer su contenido
+      let paragraph = document.createElement("p");
+      paragraph.textContent = "Premios";
+
+      // Crear el elemento <ul>
+      let ulElement = document.createElement("ul");
+
+      // Crear el primer elemento <li> y establecer su contenido
+      let liCashback = document.createElement("li");
+      liCashback.textContent = "cashback";
+
+      // Crear el segundo elemento <li> y establecer su contenido
+      let liMSI = document.createElement("li");
+      liMSI.textContent = "MSI";
+
+      // Anidar los elementos <li> dentro de <ul>
+      ulElement.appendChild(liCashback);
+      ulElement.appendChild(liMSI);
+
+      // Anidar el <p> y el <ul> dentro del <div> principal
+      rewardsLoop.appendChild(paragraph);
+      rewardsLoop.appendChild(ulElement);
+
+      let numElementos = progressBoxContainer.children.length;
+      progressEmptyBox.style.zIndex = -numElementos;
+      progressBoxContainer.appendChild(progressEmptyBox);
+      progressCaracterContainer.appendChild(caracterContainer);
+      progressRewardsContainer.appendChild(rewardsLoop);
+    };
+
+    const AddReachedLevelLoop = () => {
+      let progressBoxContainer = document.getElementById("progress-rewards");
+      let progressCaracterContainer =
+        document.querySelector(".caracter-column");
+      let progressRewardsContainer = document.querySelector(
+        ".progressBar-rewards"
+      );
+      // Crear el elemento <img>
+      let progressEmptyBox = document.createElement("img");
+
+      // Establecer atributos del elemento
+      progressEmptyBox.id = "firstLoopFilledChild";
+      progressEmptyBox.className = "progress-loop-part";
+      progressEmptyBox.src = "./loop-filled-part.png";
+      progressEmptyBox.alt = "";
+
+      // Crear el elemento <div> principal
+      let caracterReachedLoop = document.createElement("div");
+
+      // Establecer atributos para el <div>
+      caracterReachedLoop.id = "caracter-reached-loop";
+      caracterReachedLoop.className = "caracter-container caracter-loop";
+
+      // Crear el elemento <img>
+      let imgElement = document.createElement("img");
+      imgElement.src = "./AJO-LVL-4.png";
+      imgElement.className = "caracter";
+      imgElement.style.padding = "28.1px 0";
+
+      imgElement.alt = "";
+
+      // Crear el elemento <div> para la descripción
+      let caracterDescription = document.createElement("div");
+      caracterDescription.className = "caracter-description";
+
+      // Crear el elemento <span> dentro de la descripción
+      let spanElement = document.createElement("span");
+      spanElement.textContent = "Wizard";
+
+      // Anidar el <span> dentro de la descripción
+      caracterDescription.appendChild(spanElement);
+
+      // Anidar el <img> y la descripción dentro del <div> principal
+      caracterReachedLoop.appendChild(imgElement);
+      caracterReachedLoop.appendChild(caracterDescription);
+
+      // Crear el elemento <div> principal
+      let rewardsLoop = document.createElement("div");
+
+      // Establecer atributos para el <div>
+      rewardsLoop.id = "rewards-loop";
+      rewardsLoop.className = "lvl-4-rewards rewards rewards-loop";
+
+      // Crear el elemento <p> y establecer su contenido
+      let paragraph = document.createElement("p");
+      paragraph.textContent = "Premios";
+
+      // Crear el elemento <ul>
+      let ulElement = document.createElement("ul");
+
+      // Crear el primer elemento <li> y establecer su contenido
+      let liCashback = document.createElement("li");
+      liCashback.textContent = "cashback";
+
+      // Crear el segundo elemento <li> y establecer su contenido
+      let liMSI = document.createElement("li");
+      liMSI.textContent = "MSI";
+
+      // Anidar los elementos <li> dentro de <ul>
+      ulElement.appendChild(liCashback);
+      ulElement.appendChild(liMSI);
+
+      // Anidar el <p> y el <ul> dentro del <div> principal
+      rewardsLoop.appendChild(paragraph);
+      rewardsLoop.appendChild(ulElement);
+
+      let numElementos = progressBoxContainer.children.length;
+      progressEmptyBox.style.zIndex = -numElementos;
+      progressBoxContainer.appendChild(progressEmptyBox);
+      progressCaracterContainer.appendChild(caracterReachedLoop);
+      progressRewardsContainer.appendChild(rewardsLoop);
+      console.log(progressCaracterContainer);
+    };
+    function showFirst4Levels(level) {
+      for (let index = 2; index <= level; index++) {
+        if(index == level && object.resultado.isFirstTime){
+          levelUp(level)
+          return
+        }
+
+        const lottiePlayer = document.getElementById(
+          `ajolote-${index}-discover-animation`
+        );
+        console.log(lottiePlayer);
+        const container = document.getElementById(`caracter-lvl-${index}`);
+
+        // Crear un nuevo elemento <img>
+        const imgElement = document.createElement("img");
+
+        // Establecer los atributos del nuevo <img>
+        imgElement.id = `ajolote-${index}-discover-image`;
+        imgElement.className = "caracter";
+        imgElement.src = `./AJO-LVL-${index}.png`; // Cambia la ruta a la imagen que quieres usar
+        imgElement.alt = `Ajolote Nivel ${index}`;
+        imgElement.style.padding = "28.1px 0";
+        container.replaceChild(imgElement, lottiePlayer);
+      }
+    }
+    const generateNewLevel = (level) => {
+      if (level < 4) {
+        document.querySelector(
+          ".progressBar"
+        ).src = `./progressBar-Level-${level}.png`;
+        showFirst4Levels(level);
+        return;
+      }
+      // if (level == 2) {
+      //   //  if(isFirstTimeLvl2){
+      //   // levelUp(level)
+      //   // return
+      //   //  }
+
+      //   const lottiePlayer = document.getElementById(
+      //     "ajolote-2-discover-animation"
+      //   );
+      //   const container = document.getElementById("caracter-lvl-2");
+
+      //   // Crear un nuevo elemento <img>
+      //   const imgElement = document.createElement("img");
+
+      //   // Establecer los atributos del nuevo <img>
+      //   imgElement.id = "ajolote-2-discover-image";
+      //   imgElement.className = "caracter";
+      //   imgElement.src = "./AJO-LVL-2.png"; // Cambia la ruta a la imagen que quieres usar
+      //   imgElement.alt = "Ajolote Nivel 2";
+      //   imgElement.style.padding = "28.1px 0";
+
+      //   container.replaceChild(imgElement, lottiePlayer);
+      // }
+      // if (level == 3) {
+      //   //  if(isFirstTimeLvl2){
+      //   // levelUp(level)
+      //   // return
+      //   //  }
+
+      //   const lottiePlayer = document.getElementById(
+      //     `ajolote-${level}-discover-animation`
+      //   );
+      //   const container = document.getElementById(`caracter-lvl-${3}`);
+
+      //   // Crear un nuevo elemento <img>
+      //   const imgElement = document.createElement("img");
+
+      //   // Establecer los atributos del nuevo <img>
+      //   imgElement.id = `ajolote-${level}-discover-image`;
+      //   imgElement.className = "caracter";
+      //   imgElement.src = `./AJO-LVL-${level}.png`; // Cambia la ruta a la imagen que quieres usar
+      //   imgElement.alt = `Ajolote Nivel ${level}`;
+      //   imgElement.style.padding = "28.1px 0";
+
+      //   container.replaceChild(imgElement, lottiePlayer);
+      // }
+      // document.getElementById("caracter-loop").style.display = "flex";
+      // document.getElementById("firstLoopChild").style.display = "flex";
+
+      if (level >= 4) {
+        document.querySelector(
+          ".progressBar"
+        ).src = `./progressBar-Level-4.png`;
+        showFirst4Levels(4);
+        const currentLevel = level - 4;
+        for (let index = 1; index <= currentLevel; index++) {
+          AddReachedLevelLoop(object.resultado.isFirstTime ? true : false);
+          if (index == currentLevel) {
+            AddEmptyLevelLoop();
+            return;
+          }
+          console.log(index);
+        }
+      }
+      AddEmptyLevelLoop();
+    };
+    generateNewLevel(currentLvl);
+  </script>
+</html>

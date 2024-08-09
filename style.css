@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans";
+  font-family: "PP Open Sans";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf17f449b004fbc5981/original.otf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf17f449b004fbc5981/original.otf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans Heavy";
+  font-family: "PP Open Sans Heavy";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1473182004dd71b34/original.otf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1473182004dd71b34/original.otf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+@font-face {
+  -webkit-font-family: "PP Open Sans Bold";
+  font-family: "PP Open Sans Bold";
+  -webkit-src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1c6581c004ce67f97/original.ttf?1701719281")
+    format("opentype");
+  src: url("https://braze-images.com/appboy/communication/assets/font_assets/files/656e2cf1c6581c004ce67f97/original.ttf?1701719281")
+    format("opentype");
+  /* url('./assets/fonts/PPObjectSans-Heavy.otf') format('opentype'); */
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  font-family: "Lilita One";
+}
+.background {
+  position: absolute;
+  z-index: -1;
+  width: 100% !important;
+  min-width: 325px;
+  height: auto;
+  top: 0;
+}
+.mainPage-container {
+}
+button {
+  display: block;
+  background-color: #6168db;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  width: 270px;
+  height: 40px;
+  margin: 0 auto;
+  color: #fff;
+  font-family: "PP Open Sans Bold", "sans-serif";
+}
+.img-title {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  float: right;
+  color: #fff;
+}
+.mision-actual-container {
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 70px;
+
+  align-items: center;
+}
+.mision-actual-container hr {
+  width: 50%;
+}
+.progress-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 72px;
+}
+
+/* ------------------------- caracter modal ------------------------- */
+.caracter-modal {
+  width: 100%;
+  min-width: 320px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity ease 0.5s;
+}
+.caracter-modal {
+  width: 100%;
+  min-width: 320px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  display: none;
+}
+#carcater-modal-triste{
+  display: none;
+}
+.caracter-modal h1 {
+  font-size: 42px;
+}
+.caracter-modal lottie-player {
+  width: 145%;
+  height: 450px;
+}
+.caracter-modal img {
+  width: 300px;
+}
+.caracter-modal::after {
+  content: "";
+  width: 400px;
+  height: 500px;
+  position: absolute;
+  z-index: -1;
+  top: 30%;
+  left: -30%;
+  background-color: #0f4956;
+  border-radius: 50%;
+  filter: blur(170px);
+}
+.progress-container::after {
+  content: "";
+  width: 400px;
+  height: 1100px;
+  position: absolute;
+  z-index: -1;
+  top: -30%;
+  left: -30%;
+  background-color: #0f4956;
+  border-radius: 50%;
+  filter: blur(240px);
+}
+.column {
+  width: 100%;
+  display: flex;
+}
+.caracter-column {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.rewards-column{
+  justify-content: space-evenly;
+}
+.progressBar {
+  min-height: 763px;
+  width: 113px;
+  float: left;
+  display: block;
+}
+.progressBar-rewards {
+  display: flex;
+  flex-direction: column;
+  gap: 175px;
+}
+.rewards {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  color: white;
+  text-align: left;
+  font-size: 12px;
+}
+.rewards ul {
+  padding-left: 10px;
+}
+.rewards li {
+  font-size: 10px;
+}
+.lvl-1-rewards {
+  margin-top: 50px;
+  margin-left: -10px;
+}
+.lvl-1-rewards p {
+  width: 100%;
+  color: white;
+  text-align: left;
+}
+.caracter-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.caracter-container:nth-child(1) {
+  gap: 24px;
+}
+.caracter-description {
+  display: flex;
+  justify-content: center;
+}
+
+.caracter-container p {
+  font-size: 12px;
+  width: 145px;
+  display: block;
+  margin: 0 auto;
+}
+.caracter-container span {
+  font-size: 14px;
+}
+.caracter {
+  will-change: filter;
+  width: 134px;
+  -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.5));
+  filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.5));
+  -webkit-animation: glow 2s ease-in-out infinite;
+  animation: glow 2s ease-in-out infinite;
+}
+.caracter-animation {
+  width: 190px;
+}
+.recompensa-container {
+  position: relative;
+  width: 80%;
+  margin-bottom: 70px;
+}
+.title {
+  width: 100%;
+  padding: 12px;
+
+  color: #8ff8e0;
+  border-radius: 20px 20px 0 0;
+  font-size: 24px;
+}
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+.recompensa-description {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  place-items: center;
+  color: #fff;
+  border-radius: 0px 2px 20px 20px;
+}
+.progress{
+  position: relative;
+  display: flex;
+  flex-direction: column
+}
+.caracter-loop{
+display: flex;
+-webkit-animation: glow 2s ease-in-out infinite;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.progress-loop-part{
+  margin-top: -56.5px;
+  height: 275px;
+  object-fit: contain;
+  z-index: -1;
+  display: flex;
+}
+.rewards-loop{
+  display: flex;
+  flex-direction: column;
+}
+@keyframes glow {
+  0% {
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0px 0px 8px #dbdbdb80);
+  }
+  50% {
+    -webkit-filter: drop-shadow(0px 0px 11px rgba(255, 255, 255, 0.7));
+    filter: drop-shadow(0px 0px 10px #ffffffb3);
+  }
+  100% {
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0px 0px 8px #dbdbdb80);
+  }
+}
