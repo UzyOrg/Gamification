@@ -140,19 +140,25 @@ button {
   width: 400px;
   height: 500px;
   position: absolute;
-  z-index: -1;
+  z-index: -100;
   top: 30%;
   left: -30%;
   background-color: #0f4956;
   border-radius: 50%;
   filter: blur(170px);
 }
+.modal-lottie-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .progress-container::after {
   content: "";
   width: 400px;
   height: 1100px;
   position: absolute;
-  z-index: -1;
+  z-index: -100;
   top: -30%;
   left: -30%;
   background-color: #0f4956;
@@ -181,6 +187,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 175px;
+  
 }
 .rewards {
   display: grid;
@@ -213,7 +220,7 @@ button {
   align-items: center;
 }
 .caracter-container:nth-child(1) {
-  gap: 24px;
+  padding-top: 0 !important;
 }
 .caracter-description {
   display: flex;
@@ -275,7 +282,27 @@ hr {
 .progress{
   position: relative;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  z-index: 1;
+}
+.chest{
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.chest-1{
+  top: 30px;
+}
+.chest-2{
+  top: 245px;
+}
+.chest-3{
+  top: 460px;
+}
+.chest-4{
+  top: 665px;
 }
 .caracter-loop{
 display: flex;
