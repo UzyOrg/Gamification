@@ -44,8 +44,7 @@ body {
   height: auto;
   top: 0;
 }
-.mainPage-container {
-}
+
 button {
   display: block;
   background-color: #6168db;
@@ -54,7 +53,7 @@ button {
   border-radius: 20px;
   width: 270px;
   height: 40px;
-  margin: 0 auto;
+  margin: 0 auto 24px auto;
   color: #fff;
   font-family: "PP Open Sans Bold", "sans-serif";
 }
@@ -62,12 +61,12 @@ button {
   width: 300px;
   display: block;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 72px;
   margin-bottom: 40px;
 }
 .close-button {
   position: absolute;
-  top: 24px;
+  top: 48px;
   right: 24px;
   float: right;
   color: #fff;
@@ -96,37 +95,59 @@ button {
 .caracter-modal {
   width: 100%;
   min-width: 320px;
-  padding: 24px;
+  position: fixed;
+  top: 0;
+  padding: 24px 24px 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh !important;
-  overflow: hidden;
+  overflow-x: hidden;
   color: white;
   text-align: center;
   opacity: 0;
   transition: opacity ease 0.5s;
+  display: none;
+  z-index: 2;
+  background-color: #000000;
 }
-.caracter-modal {
+.modal-info {
+  width: 300px;
+  height: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 20px;
+  z-index: 100;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  animation: fadeIn 0.2s ease-in-out;
+  transition: opacity 0.3s ease;
+
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-width: 320px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh !important;
-  overflow: hidden;
-  color: white;
-  text-align: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurecimiento */
+  z-index: 99; /* Asegura que esté por encima de otros elementos */
+  display: none;
+
+  animation: fadeInOverlay 0.2s ease-in-out ;
+  transition: opacity 0.3s ease;
+}
+#carcater-modal-triste {
   display: none;
 }
-#carcater-modal-triste{
-  display: none;
-}
-.caracter-modal h1 {
+.caracter-modal-title {
   font-size: 42px;
+  margin-top: 42px;
 }
 .caracter-modal lottie-player {
   width: 145%;
@@ -147,12 +168,37 @@ button {
   border-radius: 50%;
   filter: blur(170px);
 }
-.modal-lottie-container{
+.comercios-container {
+  padding: 24px;
+  border-radius: 20px;
+  min-width: 310px;
+  max-width: 320px;
+  min-height: 600px;
+
+  overflow-y: scroll;
+  display: none;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.comercios {
+  width: 125px !important;
+  border: 5px solid #efefef;
+  border-radius: 15px;
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+.selected {
+  border-color: #15ddb8;
+  transform: scale(1.1);
+}
+.modal-lottie-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+/* ------------------------- Progress Main Page ------------------------- */
 .progress-container::after {
   content: "";
   width: 400px;
@@ -174,7 +220,7 @@ button {
   flex-direction: column;
   gap: 13px;
 }
-.rewards-column{
+.rewards-column {
   justify-content: space-evenly;
 }
 .progressBar {
@@ -187,7 +233,6 @@ button {
   display: flex;
   flex-direction: column;
   gap: 175px;
-  
 }
 .rewards {
   display: grid;
@@ -250,12 +295,12 @@ button {
 .recompensa-container {
   position: relative;
   width: 80%;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 }
 .title {
   width: 100%;
   padding: 12px;
-
+  margin-top: -24px;
   color: #8ff8e0;
   border-radius: 20px 20px 0 0;
   font-size: 24px;
@@ -279,45 +324,75 @@ hr {
   color: #fff;
   border-radius: 0px 2px 20px 20px;
 }
-.progress{
+.progress {
   position: relative;
   display: flex;
   flex-direction: column;
   z-index: 1;
 }
-.chest{
+.progressFilledBoxContainer {
+  position: relative;
+}
+.chest {
   width: 85px;
   height: 85px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
-.chest-1{
+.chest-1 {
   top: 30px;
 }
-.chest-2{
+.chest-2 {
   top: 245px;
 }
-.chest-3{
+.chest-3 {
   top: 460px;
 }
-.chest-4{
+.chest-4 {
   top: 665px;
 }
-.caracter-loop{
-display: flex;
--webkit-animation: glow 2s ease-in-out infinite;
+.info-tag {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  background-color: red;
+  right: 0px;
+  top: -10px;
+  border-radius: 50%;
+  z-index: 100;
+}
+.tag-1{
+  top: 20px;
+}
+.tag-2{
+  top: 220px;
+}
+.tag-3{
+  top: 440px;
+}
+.tag-4{
+  top: 640px;
+}
+.info-tag-newLevel {
+  top: initial;
+  right: -5px;
+  bottom: 90px;
+}
+.caracter-loop {
+  display: flex;
+  -webkit-animation: glow 2s ease-in-out infinite;
   animation: glow 2s ease-in-out infinite;
 }
 
-.progress-loop-part{
+.progress-loop-part {
   margin-top: -56.5px;
   height: 275px;
   object-fit: contain;
   z-index: -1;
   display: flex;
 }
-.rewards-loop{
+.rewards-loop {
   display: flex;
   flex-direction: column;
 }
@@ -333,5 +408,25 @@ display: flex;
   100% {
     -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.5));
     filter: drop-shadow(0px 0px 8px #dbdbdb80);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes fadeInOverlay {
+  0% {
+    opacity: 0;
+
+  }
+  100% {
+    opacity: 1;
+ 
   }
 }
