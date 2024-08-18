@@ -91,31 +91,6 @@ button {
 }
 .mision-actual-container hr {
   width: 50%;
-  border-color: rgba(255, 255, 255, 0.3);
-  
-}
-#meta-actual-text {  /*Cambio de estilo Cas*/
-  font-size: 1.2em; /* Tamaño ligeramente mayor que el texto normal */
-  color: #ffffff; /* Mantener el texto en blanco para que contraste con el fondo */
-  background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
-  padding: 10px 20px; /* Espacio alrededor del texto */
-  border-radius: 10px; /* Bordes redondeados */
-  text-align: center; /* Centrar el texto */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para darle un poco de relieve */
-  margin: 10px 30px; /* 10px de margen arriba y abajo, 30px de margen a los lados */
-}
-.mision-header { /*Cambio de estilo Cas*/
-  font-size: 1.5em; /* Tamaño del texto */
-  color: #ffffff; /* Color blanco para el texto */
-  font-family: 'Lilita One', cursive; /* Usa la misma tipografía que el resto del diseño */
-  margin: 0; /* Elimina márgenes del texto */
-  text-align: center; /* Centra el texto */
-  /*background: rgba(0, 0, 0, 0.7); /* Fondo negro semi-transparente */
-  padding: 15px 20px; /* Espacio interno alrededor del texto */
-  border-radius: 10px; /* Bordes redondeados */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para darle más presencia al texto */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para darle un poco de profundidad */
-  margin-bottom: 10px; /* Espacio inferior para separar del contenido siguiente */
 }
 .progress-container {
   position: relative;
@@ -145,9 +120,6 @@ button {
   z-index: 2;
   background-color: #000000;
 }
-.modal-button {
-  transition: opacity 0.3s ease;
-}
 .modal-info {
   width: 300px;
   height: 310px;
@@ -164,7 +136,9 @@ button {
   display: none;
   animation: fadeIn 0.2s ease-in-out;
   transition: opacity 0.3s ease;
- 
+}
+.modal-button {
+  transition: opacity 0.3s ease;
 }
 .text-info-container {
   width: 100%;
@@ -173,7 +147,7 @@ button {
   text-align: center;
   justify-content: center;
 }
-.text-info-container img{
+.text-info-container img {
   width: 180px;
   place-self: center;
 }
@@ -193,7 +167,6 @@ a {
   font-size: 12px;
   font-family: "PP Open Sans", "sans-serif";
   text-align: center;
-  
 }
 
 .modal-overlay {
@@ -203,7 +176,7 @@ a {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Oscurecimiento */
-  z-index: 99; /* Asegura que estÃ© por encima de otros elementos */
+  z-index: 99; /* Asegura que esté por encima de otros elementos */
   display: none;
 
   animation: fadeInOverlay 0.2s ease-in-out;
@@ -290,7 +263,7 @@ a {
   gap: 13px;
 }
 .rewards-column {
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .progressBar {
   min-height: 763px;
