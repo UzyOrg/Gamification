@@ -12,35 +12,29 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <link rel="stylesheet" href="https://braze-images.com/appboy/communication/assets/code_assets/files/66c0ea4acf09fa0064008240/original.css?1723918922" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="main-container">
-      <img
-        class="background"
-        src="https://braze-images.com/appboy/communication/assets/image_assets/images/66bc41d3d0d80700634db9fb/original.png?1723613648"
-        alt=""
-      />
+      <img class="background" src="./background.png" alt="" />
       <img
         class="close-button"
-        src="https://braze-images.com/appboy/communication/assets/svg_assets/files/66c027bea2ace80063aba43a/original.svg?1723869118"
-        onclick="brazeBridge.logClick('Cerrar_pantalla');brazeBridge.closeMessage()"
+        src="./back-icon.svg"
+        onclick="brazeBridge.logClick();brazeBridge.closeMessage()"
       />
       <div class="caracter-modal">
-        <!-- Este es el modal, solo se renderiza en ciertos momentos-->
         <img
           class="background"
           src="https://braze-images.com/appboy/communication/assets/image_assets/images/66bc41d3d0d80700634db9fb/original.png?1723613648"
           alt=""
         />
         <img
-          src="https://braze-images.com/appboy/communication/assets/svg_assets/files/66c027bea2ace80063aba43a/original.svg?1723869118"
+          src="./back-icon.svg"
           id="close-button-modal"
           class="close-button"
         />
         <p class="caracter-modal-title" id="modal-title">¡GANASTE!</p>
         <div class="modal-lottie-container">
-          <!-- Este es el modal, solo se renderiza en ciertos momentos-->
           <lottie-player
             class="modal-lottie"
             id="Ajolote-Level-1-Animacion"
@@ -54,7 +48,6 @@
           ></lottie-player>
         </div>
         <div class="recompensa-container">
-          <!-- Este es el modal, solo se renderiza en ciertos momentos-->
           <p class="title">Recompensa</p>
           <hr />
           <div class="recompensa-description">
@@ -62,7 +55,6 @@
           </div>
         </div>
         <div class="comercios-container">
-          <!-- Este es el modal, solo se renderiza en ciertos momentos-->
           <div id="Gasolina" class="comercios"><p>Gasolina</p></div>
           <div id="Farmacias" class="comercios"><p>Farmacias</p></div>
           <div id="Uber" class="comercios"><p>Uber</p></div>
@@ -74,7 +66,7 @@
       <div class="modal-overlay"></div>
       <div class="modal-info">
         <img
-          src="https://braze-images.com/appboy/communication/assets/svg_assets/files/66c027bef7d0e900659c59b3/original.svg?1723869118"
+          src="./close-button-x.svg"
           id="close-modal-info"
           style="color: black; float: right"
         />
@@ -96,22 +88,14 @@
           src="https://braze-images.com/appboy/communication/assets/image_assets/images/66bc41cffbc3f20064c786a6/original.png?1723613647"
           alt=""
         />
-        <!-- Aquí va la mnisión actual, la variable -->
         <div class="mision-actual-container">
-          <p class="mision-header">Completa tu misión</p>
-          <!-- Aquí cambiar el título de misión actual-->
+          <p class="mision-header">Misión Actual</p>
           <hr />
-          <!--- Esta es la línea-->
           <p id="meta-actual-text">...</p>
-          <!--- Esta es la meta actual, como variable-->
         </div>
-        <!--Este es el div de todos los progress bar y monitos y todo-->
         <div class="progress-container">
-          <!--Este div agarra solo el div de los avatares-->
           <div class="column caracter-column">
-            <!---Aquí entra con la variable if (index === level && isFirstTime) {-->
             <div id="caracter-lvl-1" class="caracter-container">
-              <!--Aquí es donde entra la función createLevelElement donde trae la inf--->
               <lottie-player
                 id="ajolote-1-discover-animation"
                 class="caracter-animation caracter"
@@ -122,7 +106,7 @@
                 mode="normal"
               ></lottie-player>
               <div class="caracter-description">
-                <span>Aprendiz (nivel 1)</span>
+                <span>Newbie</span>
               </div>
             </div>
             <div id="caracter-lvl-2" class="caracter-container">
@@ -136,7 +120,7 @@
                 mode="normal"
               ></lottie-player>
               <div class="caracter-description">
-                <span>Hechicero (nivel 2)</span>
+                <span>Aprendiz</span>
               </div>
             </div>
             <div id="caracter-lvl-3" class="caracter-container">
@@ -150,7 +134,7 @@
                 mode="normal"
               ></lottie-player>
               <div class="caracter-description">
-                <span>Mago (nivel 3)</span>
+                <span>Amateur</span>
               </div>
             </div>
             <div id="caracter-lvl-4" class="caracter-container">
@@ -164,32 +148,32 @@
                 mode="normal"
               ></lottie-player>
               <div class="caracter-description">
-                <span>Gran Mago (nivel 4)</span>
+                <span>Wizard</span>
               </div>
             </div>
           </div>
           <div class="column rewards-column">
             <div id="progress-rewards" class="progress">
               <img
-                src="https://braze-images.com/appboy/communication/assets/svg_assets/files/66c027be4e8bd3006498e88d/original.svg?1723869118"
+                src="./icono-info.svg"
                 class="info-tag tag-1"
                 onclick="openModalInfo(1)"
               />
               <div class="chest chest-1"></div>
               <img
-                src="https://braze-images.com/appboy/communication/assets/svg_assets/files/66c027be4e8bd3006498e88d/original.svg?1723869118"
+                src="./icono-info.svg"
                 class="info-tag tag-2"
                 onclick="openModalInfo(2)"
               />
               <div class="chest chest-2"></div>
               <img
-                src="https://braze-images.com/appboy/communication/assets/svg_assets/files/66c027be4e8bd3006498e88d/original.svg?1723869118"
+                src="./icono-info.svg"
                 class="info-tag tag-3"
                 onclick="openModalInfo(3)"
               />
               <div class="chest chest-3"></div>
               <img
-                src="https://braze-images.com/appboy/communication/assets/svg_assets/files/66c027be4e8bd3006498e88d/original.svg?1723869118"
+                src="./icono-info.svg"
                 class="info-tag tag-4"
                 onclick="openModalInfo(4)"
               />
@@ -202,32 +186,32 @@
             </div>
             <div class="progressBar-rewards">
               <div class="lvl-1-rewards rewards">
-                <!--<p>Premios</p>
+                <p>Premios</p>
                 <ul>
                   <li>cashback</li>
                   <li>MSI</li>
-                </ul>-->
+                </ul>
               </div>
               <div class="lvl-2-rewards rewards">
-                <!--<p>Premios</p>
+                <p>Premios</p>
                 <ul>
                   <li>cashback</li>
                   <li>MSI</li>
-                </ul>-->
+                </ul>
               </div>
               <div class="lvl-3-rewards rewards">
-                <!--<p>Premios</p>
+                <p>Premios</p>
                 <ul>
                   <li>cashback</li>
                   <li>MSI</li>
-                </ul>-->
+                </ul>
               </div>
               <div class="lvl-4-rewards rewards">
-                <!--<p>Premios</p>
+                <p>Premios</p>
                 <ul>
                   <li>cashback</li>
                   <li>MSI</li>
-                </ul>-->
+                </ul>
               </div>
             </div>
           </div>
@@ -235,8 +219,7 @@
       </div>
     </div>
   </body>
-  <!-- script de campañas -->
-  <script src="https://braze-images.com/appboy/communication/assets/code_assets/files/66c0eab2dc2c970063788dd4/original.js?1723919026"></script>
+  <script src="./campañas.js"></script>
   <script>
     // Objeto que rellena toda la información de la app
     // --------------------------------------
@@ -244,36 +227,32 @@
       resultado: {
         isFirstTime: false /* boleano */,
         Logros: {
-          Nivel: 6 /* Entero mayor a 0 */, // Aquí es donde se pone el nivel actual
+          Nivel: 5 /* Entero mayor a 0 */,
           hasFailed: false /* boleano */,
           semana: 1 /* Entero mayor a 0 */,
           comercio: "" /* String */,
         },
       },
-      premioActual: "Elige un comercio donde quieras cashback" /* String */,
-      urlPremioActual: "https://www.youtube.com",
-      metaActual:
-        "Realiza 5 transacciones. Tienes hasta el 20 de agosto" /* String  Aquí es donde le ponemos la meta actual */,
+      premioActual: "3% de cashback del 20 al 28 de Junio." /* String */,
+      metaActual: "Haz una compra a MSI" /* String */,
       premios: {
-        1: {premio: "Ganaste Premio 1", urlPromo:"https://www.google.com"},
-        2: {premio: "Ganaste Premio 2", urlPromo:"https://www.google.com"},
-        3: {premio: "Ganaste Premio 3", urlPromo:"https://www.google.com"},
-        4: {premio: "Ganaste Premio 4", urlPromo:"https://www.google.com"},
-        5: {premio: "Ganaste Premio 5", urlPromo:"https://www.google.com"},
+        1: "Ganaste Premio 1",
+        2: "Ganaste Premio 2",
+        3: "Ganaste Premio 3",
+        4: "Ganaste Premio 4",
+        5: "Ganaste Premio 5",
+        6: "Ganaste Premio 6",
+        7: "Ganaste Premio 7",
       },
     };
     // --------------------------------------
- //Aquí saco todas las variables que necesito sin para tener código más limpio
+
     const { Nivel, hasFailed, semana, comercio } = object.resultado.Logros;
-    const { premioActual, urlPremioActual, metaActual, premios } = object;
+    const { premioActual, metaActual, premios } = object;
     const { isFirstTime } = object.resultado;
 
-    //Variable que redirecciona al usuario a su promo:
-    let UrlPromo = 'https://www.google.com'
-
     const caracterModal = document.querySelector(".caracter-modal");
-    document.getElementById("meta-actual-text").innerText =
-      metaActual; /* Aquí es cuando se agarra la variable para meta actual */
+    document.getElementById("meta-actual-text").innerText = metaActual;
     document
       .getElementById("close-button-modal")
       .addEventListener("click", () => {
@@ -284,58 +263,6 @@
       });
     const modalInfoCloseButton = document.getElementById("close-modal-info");
     modalInfoCloseButton.addEventListener("click", closeModalInfo);
-
-    function inscriptionApiRewards(promoSeleccionada) {
-      console.log(promoSeleccionada);
-      let campañaAsignada = campañas[promoSeleccionada];
-      console.log(campañaAsignada);
-      const rewardsAPI = () => {
-        let result = fetch(
-          "https://rewards-mx.dev-k8s.rappipay.com.mx/rewards/mx/btb/api/v1/MX/campaigns/wl/list-users",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization:
-                "Basic cnBwLWdyb3d0aC1yYXBwaS1jYXJkLW14LWhvdC1zYWxlOjNhOWU1YzYwZDNmN2I4ZWE4OGUxMjc5N2JhZjZmOGRl",
-            },
-            body: JSON.stringify([
-              {
-                user_id: "88b3e180-788c-43a3-b5fa-c67d025a16f3",
-                campaign_id: campañaAsignada.post,
-                type_list: "WL",
-                active: true,
-              },
-              {
-                user_id: "88b3e180-788c-43a3-b5fa-c67d025a16f3",
-                campaign_id: campañaAsignada.refund,
-                type_list: "WL",
-                active: true,
-              },
-            ]),
-          }
-        )
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(
-                "Network response was not ok " + response.statusText
-              );
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data);
-          })
-          .catch((error) => {
-            console.error(
-              "There was a problem with the fetch operation: ",
-              error
-            );
-          });
-      };
-      // rewardsAPI()
-    }
-    // Este es para las i de información de las metas
     function openModalInfo(currentLevel) {
       modalInfo = document.querySelector(".modal-info");
       overlay = document.querySelector(".modal-overlay");
@@ -344,11 +271,125 @@
       modalInfo.style.display = "block";
       overlay.style.display = "block";
       document.getElementById("premio-info-container").textContent =
-        premios[currentLevel].premio;
+        premios[currentLevel];
       document.getElementById("chest-info-container").src =
         currentLevel >= 4
           ? `https://growth-cdn.business-systems-rappicard.mx/Gamification/cofre-nivel-4.png`
           : `https://growth-cdn.business-systems-rappicard.mx/Gamification/cofre-nivel-${currentLevel}.png`;
+    }
+    function inscriptionApiRewards(promoSeleccionada) {
+      console.log(promoSeleccionada);
+      let campañaAsignada = campañas[promoSeleccionada];
+      console.log(campañaAsignada);
+      //   const rewardsAPI = () => {
+
+      //   let result = fetch(
+      //     "https://rewards-mx.dev-k8s.rappipay.com.mx/rewards/mx/btb/api/v1/MX/campaigns/wl/list-users",
+      //     {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //         Authorization:
+      //           "Basic cnBwLWdyb3d0aC1yYXBwaS1jYXJkLW14LWhvdC1zYWxlOjNhOWU1YzYwZDNmN2I4ZWE4OGUxMjc5N2JhZjZmOGRl",
+      //       },
+      //       body: JSON.stringify([
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañaAsignada.refund_1_digito,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañaAsignada.post_1_digito,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañaAsignada.refund_2_digitos,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañaAsignada.post_2_digitos,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañaAsignada.refund_3_digitos,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañaAsignada.post_3_digitos,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañaAsignada.refund_4_digitos,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañaAsignada.post_4_digitos,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         // comercios
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id:
+      //             campañasComercios.todosLosComercios.post_todosLosComercios,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id:
+      //             campañasComercios.todosLosComercios.refund_todosLosComercios,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañasComercios.Amazon.post_Amazon,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //         {
+      //           user_id: "4116948e-67e0-4d6c-bde7-b1dbb086c189",
+      //           campaign_id: campañasComercios.Amazon.refund_Amazon,
+      //           type_list: "WL",
+      //           active: true,
+      //         },
+      //       ]),
+      //     }
+      //   )
+      //     .then((response) => {
+      //       if (!response.ok) {
+      //         throw new Error(
+      //           "Network response was not ok " + response.statusText
+      //         );
+      //       }
+      //       console.log("holas");
+      //       return response.json();
+      //     })
+      //     .then((data) => {
+      //       console.log(data);
+      //     })
+      //     .catch((error) => {
+      //       console.error(
+      //         "There was a problem with the fetch operation: ",
+      //         error
+      //       );
+      //     });
+      // };
     }
     function closeModalInfo() {
       modalInfo = document.querySelector(".modal-info");
@@ -360,22 +401,19 @@
         overlay.style.display = "none";
       }, 500);
     }
-
-    // Este es la función que va creando los niveles
     function createLevelElement(level, isFirstTime) {
       // Crear el elemento <div> principal
       const caracterReachedLoop = document.createElement("div");
-      // Aquí es cuando con el click abre el modal, aquí es donde agregaríamos el log click
       caracterReachedLoop.addEventListener("click", () => {
         updateModalContent(level, hasFailed);
       });
       caracterReachedLoop.id = `caracter-reached-loop-${level}`;
       caracterReachedLoop.className = "caracter-container caracter-loop";
 
-      // Crear el elemento de caracter para los niveles 4 o más imagen esta´tica o con animación
+      // Crear el elemento de caracter
       let caracterElement;
       if (isFirstTime) {
-        // Usar lottie-player si es la primera vez aquí viene la lógica de si ya lo vio o no
+        // Usar lottie-player si es la primera vez
         caracterElement = document.createElement("lottie-player");
         caracterElement.setAttribute(
           "id",
@@ -390,7 +428,6 @@
         caracterElement.setAttribute("direction", "1");
         caracterElement.setAttribute("mode", "normal");
         caracterElement.setAttribute("autoplay", "true");
-        // Aquí es cuando le das el timeout para el modal de animación, retraso de 5 segundos para mostrar modal
         setTimeout(() => {
           document.querySelector(".caracter-modal").style.display = "flex";
           setTimeout(() => {
@@ -412,7 +449,7 @@
       const caracterDescription = document.createElement("div");
       caracterDescription.className = "caracter-description";
       const spanElement = document.createElement("span");
-      spanElement.textContent = `Gran Mago (nivel ${level})`; // Wizard se queda pa 4+
+      spanElement.textContent = "Wizard";
       caracterDescription.appendChild(spanElement);
 
       // Anidar elementos dentro del <div> principal
@@ -421,7 +458,7 @@
 
       return caracterReachedLoop;
     }
-    // Esta es la animación para un nivel específico cuando apenas se abre
+
     function handleLevelAnimation(level, isFirstTime) {
       if (isFirstTime) {
         // Ejecutar la animación solo si es la primera vez en el nivel especificado
@@ -440,8 +477,9 @@
         }, 5000);
       }
     }
-    // Este es para el siguiente nivel que parezca sin rellenar
+
     const AddEmptyLevelLoop = () => {
+      console.log("hoall");
       //convertir a crear el elemento en vez de copiar el nodo ("esta creando uno rellenado")
       let progressBoxContainer = document.getElementById("progress-rewards");
       let progressCaracterContainer =
@@ -484,7 +522,7 @@
 
       // Crear el elemento <span> dentro de la descripción
       let spanElement = document.createElement("span");
-      spanElement.textContent = `Gran Mago (Nivel ${Nivel + 1})`;
+      spanElement.textContent = "Wizard";
 
       // Anidar el <span> dentro de la descripción
       caracterDescription.appendChild(spanElement);
@@ -511,43 +549,46 @@
 
       // Crear el segundo elemento <li> y establecer su contenido
       let liMSI = document.createElement("li");
-      liMSI.textContent = "?";
+      liMSI.textContent = "MSI";
 
-      // Anidar los elementos <li> dentro de <ul> --- Comentado por Cas para uqe ya no salgan la descripción de los premios en la pantalla pricnipal
-      /*  ulElement.appendChild(liCashback);
+      // Anidar los elementos <li> dentro de <ul>
+      ulElement.appendChild(liCashback);
       ulElement.appendChild(liMSI);
 
-      // Anidar el <p> y el <ul> dentro del <div> principal -
+      // Anidar el <p> y el <ul> dentro del <div> principal
       rewardsLoop.appendChild(paragraph);
-      rewardsLoop.appendChild(ulElement);*/
+      rewardsLoop.appendChild(ulElement);
 
       let numElementos = progressBoxContainer.children.length;
       progressEmptyBox.style.zIndex = -numElementos;
       progressBoxContainer.appendChild(progressEmptyBox);
       progressCaracterContainer.appendChild(caracterContainer);
       progressRewardsContainer.appendChild(rewardsLoop);
+      setTimeout(() => {
+        // Hacer scroll al final del modal
+        progressBoxContainer.lastElementChild.scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 1200);
     };
-    // Aquí decide su has failed = true entonce sale en todos el ajolote triste, auqí es donde cambiaría la imagen para cada uno
+
     function updateModalContent(level, hasFailed) {
       const modalTitle = document.getElementById("modal-title");
       const modal = document.querySelector(".caracter-modal");
       const lottieContainer = document.querySelector(".modal-lottie-container");
       const recompensaText = document.querySelector(".recompensa-description");
-      const modalCloseButton = document.getElementById("close-button-modal");
       const modalButton = document.getElementById("modal-button");
+      const modalCloseButton = document.getElementById("close-button-modal");
       const comercioSelector = document.querySelector(".comercios-container");
       const recompensaContainer = document.querySelector(
         ".recompensa-container"
       );
-      let action = "redireccionar";
-      let promoSeleccionada = "";
-
       if (hasFailed) {
-        // Usar una imagen si falló, si es mayopr a 4 simpre regresa el ajolote número 1
-        modalTitle.textContent = `AJO te extraña`; // Aquí es donde cambiaremos el header de fallo
+        // Usar una imagen si falló
+        modalTitle.textContent = `AJO te extraña`;
         const imgElement = document.createElement("img");
         imgElement.src = `https://growth-cdn.business-systems-rappicard.mx/Gamification/AJO-LVL-${
-          level >= 4 ? "3" : level /// Modificación Cas de cambiar 1 por 3 en lo que está el ajolote triste nivel 4
+          level >= 4 ? "1" : level
         }-TRISTE.png`; // Imagen de falla o imagen estática
         imgElement.alt = `Ajolote Nivel ${level}`;
 
@@ -555,8 +596,8 @@
         lottieContainer.innerHTML = "";
         lottieContainer.appendChild(imgElement);
       } else {
-        // Usar lottie-player si no falló si es un novel abajo de 4 se muetrsa el de 4, si es 4 o más se muetsra el de 4
-        modalTitle.innerHTML = `¡GANASTE!<br>Nivel ${level}`; /// Modificación Cas de cambiarlo a current level (Esta es la parte que tampoco me sale, me sale solo el ultimo nivel no el correspondiente aor acada nivel)
+        // Usar lottie-player si no falló
+        modalTitle.innerHTML = `¡GANASTE!<br>Nivel ${level}`;
         comercioSelector.style.display = "none";
         recompensaContainer.style.marginBottom = "50px";
         const newLottiePlayer = document.createElement("lottie-player");
@@ -573,21 +614,13 @@
         newLottiePlayer.setAttribute("loop", "true");
         lottieContainer.innerHTML = "";
         lottieContainer.appendChild(newLottiePlayer);
-
-        // Este if level >= 4 and comercio debe ca,biar por si la meta le toca desde el nivel 1.
-        //if (level >= 4 && comercio.length === 0) {
-        if (
-          level === Nivel &&
-          metaActual.includes("transacciones. Tienes hasta") &&
-          comercio.length === 0
-        ) {
-          // Modificación Cas, el usuario puede ser que pueda elegir desde nivel 1, y solo le salga si está en el nivel actual (Esta es la parte que no me sale :C, que que oslo salga en el nivel actual, me salen en todos )
+        if (level >= 4 && comercio.length === 0) {
           modalCloseButton.style.display = "none";
           modalButton.style.opacity = 0;
-          action = "registrarApi";
           comercioSelector.style.display = "flex";
           recompensaContainer.style.marginBottom = "0px";
           const images = document.querySelectorAll(".comercios-container div");
+          let promoSeleccionada = "";
           images.forEach((image) => {
             image.addEventListener("click", function () {
               //Aquí se guarda la selección
@@ -597,32 +630,26 @@
               modalButton.style.opacity = 1;
             });
           });
+          modalButton.addEventListener("click", () => {
+            inscriptionApiRewards(promoSeleccionada);
+          });
           setTimeout(() => {
             // Hacer scroll al modal para que esté en la vista
             comercioSelector.scrollIntoView({ behavior: "smooth" });
           }, 1200);
-        } else {
-          // Añadido por Cas para que solo si es click en el modal de nivel actual se abra lo de comercios Si no es el nivel actual, mostrar premios históricos, Este tampo me sale :(
-          recompensaText.textContent = premioActual;
         }
         //en este else poner el de seleccion en vez del modal
       }
       // Actualizar el texto de la recompensa
       recompensaText.textContent =
-        level == Nivel ? premioActual : premios[level].premio; // Auqí es donde está la aprte de premio, de cada nivel, modificación Cas. Igual no se qéu se le tien que mover
+        level == Nivel
+          ? comercio.length > 0
+            ? `Tienes 3% de cashback del 20 al 28 en ${comercio}.`
+            : premioActual
+          : premios[level].premio;
 
       // Actualizar el botón si es necesario
-      modalButton.textContent = "Usar mi promo"; 
-      modalButton.addEventListener("click", () => {
-        if (action === "redireccionar") {
-          brazeBridge.logClick("redireccion_promo");
-          // Redirigir a una URL específica
-          window.location.href = level == Nivel ? urlPremioActual : premios[level].urlPromo;
-        } else if (action === "registrarApi") {
-          brazeBridge.logClick(promoSeleccionada);
-          inscriptionApiRewards(promoSeleccionada);
-        }
-      });
+      modalButton.textContent = "Usar mi promo";
 
       // Mostrar el modal
       modal.style.display = "flex";
@@ -630,7 +657,7 @@
         modal.style.opacity = 1;
       }, 100);
     }
-    // Ahora este va añadiendo el nivel que va el usaurio, para los 4+
+
     const AddReachedLevelLoop = (level, isFirstTime, hasFailed) => {
       const progressBoxContainer = document.getElementById("progress-rewards");
       const progressCaracterContainer =
@@ -680,15 +707,6 @@
 
       // Crear y añadir el elemento de nivel usando la función auxiliar
       const caracterReachedLoop = createLevelElement(level, isFirstTime);
-
-      // Modificación para asignar el nivel correcto --- modificación Cas
-      const spanElement = caracterReachedLoop.querySelector(
-        ".caracter-description span"
-      );
-      if (spanElement) {
-        spanElement.textContent = `Gran Mago (nivel ${level})`; // Asigna el nivel correspondiente
-      }
-
       progressCaracterContainer.appendChild(caracterReachedLoop);
 
       //  -- Texto Recompensas
@@ -712,18 +730,18 @@
       const liMSI = document.createElement("li");
       liMSI.textContent = "MSI";
 
-      // Anidar los elementos <li> dentro de <ul> --- Comentado por Cas para uqe ya no salgan la descripción de los premios en la pantalla pricnipal
-      /* ulElement.appendChild(liCashback);
+      // Anidar los elementos <li> dentro de <ul>
+      ulElement.appendChild(liCashback);
       ulElement.appendChild(liMSI);
 
       // Anidar el <p> y el <ul> dentro del <div> principal
       rewardsLoop.appendChild(paragraph);
-      rewardsLoop.appendChild(ulElement);*/
+      rewardsLoop.appendChild(ulElement);
 
       // Añadir elementos al DOM
       progressRewardsContainer.appendChild(rewardsLoop);
     };
-    // Esta es la parte que se va a cambiando según el valor que le de al nivel de los primeros 4 niveles
+
     function showFirst4Levels(level) {
       for (let index = 1; index <= level; index++) {
         if (index > 4) return;
@@ -761,7 +779,6 @@
         }
       }
     }
-    // Crea un nuevo nivel (Este s ocmo el general , si mi nivel es menor a 4 toma el de fuirst level y si no, hace un loop y usa la función add reched level loop )
     const generateNewLevel = (level) => {
       showFirst4Levels(level);
       document.querySelector(".progressBar").src =
@@ -779,7 +796,7 @@
           AddReachedLevelLoop(index, false);
         }
       }
-      AddEmptyLevelLoop();
+      // AddEmptyLevelLoop();
     };
     generateNewLevel(Nivel);
   </script>
