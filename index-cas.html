@@ -257,7 +257,7 @@
       resultado: {
         isFirstTime: true /* boleano */,
         Logros: {
-          Nivel: 3 /* Entero mayor a 0 */, // Aquí es donde se pone el nivel actual
+          Nivel: 1 /* Entero mayor a 0 */, // Aquí es donde se pone el nivel actual
           hasFailed: false /* boleano */,
           semana: 1 /* Entero mayor a 0 */,
           comercio: "" /* String */,
@@ -350,7 +350,7 @@
     modalInfoCloseButton.addEventListener("click", closeModalInfo);
 
     function inscriptionApiRewards(promoSeleccionada) {
-      const userID = "88b3e180-788c-43a3-b5fa-c67d025a16f3";
+      const userID = "";
       let cuerpoPost = [];
       for (let [nombre, campaña] of Object.entries(campañas)) {
         console.log(promoSeleccionada);
@@ -391,7 +391,7 @@
       //       headers: {
       //         "Content-Type": "application/json",
       //         Authorization:
-      //           "Basic cnBwLWdyb3d0aC1yYXBwaS1jYXJkLW14LWhvdC1zYWxlOjNhOWU1YzYwZDNmN2I4ZWE4OGUxMjc5N2JhZjZmOGRl",
+      //           "Basic ",
       //       },
       //       body: body,
       //     }
