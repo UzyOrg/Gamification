@@ -119,16 +119,19 @@
             <!-- Aquí cambiar el título de misión actual-->
             <!--- Esta es la línea-->
             <p id="meta-actual-text">...</p>
-            <hr>
+            <hr />
             <div class="bonus-container">
-              <img src="https://growth-cdn.business-systems-rappicard.mx/Gamification/filled_thunder-turbo.svg" alt="">
+              <img
+                src="https://growth-cdn.business-systems-rappicard.mx/Gamification/filled_thunder-turbo.svg"
+                alt=""
+              />
               <div class="bonus-content">
                 <p class="bonus-title">Bonus</p>
                 <p class="bonus-text">Tienes Doble CB para esta misón</p>
               </div>
             </div>
           </div>
-          
+
           <!--- Esta es la meta actual, como variable-->
           <hr />
         </div>
@@ -257,7 +260,7 @@
       resultado: {
         isFirstTime: true /* boleano */,
         Logros: {
-          Nivel: 1 /* Entero mayor a 0 */, // Aquí es donde se pone el nivel actual
+          Nivel: 2 /* Entero mayor a 0 */, // Aquí es donde se pone el nivel actual
           hasFailed: false /* boleano */,
           semana: 1 /* Entero mayor a 0 */,
           comercio: "" /* String */,
@@ -330,6 +333,7 @@
     const { Nivel, hasFailed, semana, comercio } = object.resultado.Logros;
     const { premioActual, urlPremioActual, metaActual, premios } = object;
     const { isFirstTime } = object.resultado;
+    
 
     //Variable que redirecciona al usuario a su promo:
     let UrlPromo = "https://www.google.com";
@@ -349,12 +353,19 @@
     const modalInfoCloseButton = document.getElementById("close-modal-info");
     modalInfoCloseButton.addEventListener("click", closeModalInfo);
 
-    function inscriptionApiRewards(promoSeleccionada) {
-      const userID = "";
+    async function inscriptionApiRewards(promoSeleccionada) {
+      console.log(promoSeleccionada)
+      const userID = "88b3e180-788c-43a3-b5fa-c67d025a16f3";
       let cuerpoPost = [];
+      console.log(Object.entries(campañas));
       for (let [nombre, campaña] of Object.entries(campañas)) {
-        console.log(promoSeleccionada);
+        const isActiveCampaignValidation =
+      (nombre === "Gasolina" || nombre === "Farmacias") &&
+      (promoSeleccionada === "Gasolina" || promoSeleccionada === "Farmacias")
+        ? true
+        : false;
         if (nombre === promoSeleccionada) {
+          console.log('olaaaa')
           cuerpoPost.push({
             user_id: userID,
             campaign_id: campaña.post,
@@ -372,37 +383,38 @@
             user_id: userID,
             campaign_id: campaña.post,
             type_list: "WL",
-            active: false,
+            active: isActiveCampaignValidation,
           });
           cuerpoPost.push({
             user_id: userID,
             campaign_id: campaña.refund,
             type_list: "WL",
-            active: false,
+            active: isActiveCampaignValidation,
           });
         }
       }
       let body = JSON.stringify(cuerpoPost);
-      // try {
-      //   const response = await fetch(
-      //     "https://rewards-mx.dev-k8s.rappipay.com.mx/rewards/mx/btb/api/v1/MX/campaigns/wl/list-users",
-      //     {
-      //       method: "POST",
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //         Authorization:
-      //           "Basic ",
-      //       },
-      //       body: body,
-      //     }
-      //   );
-      //   if (!response.ok) {
-      //     throw new Error("Network response was not ok " + response.statusText);
-      //   }
-      //   console.log("registro exitoso");
-      // } catch (error) {
-      //   console.error("Error durante la operación fetch: ", error);
-      // }
+      console.log(body);
+      try {
+        const response = await fetch(
+          "https://rewards-mx.prod-k8s.rappipay.com.mx/rewards/mx/btb/api/v1/MX/campaigns/wl/list-users",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization:
+                "Basic cnBwLWdyb3d0aC1yYXBwaS1jYXJkLW14LWhvdC1zYWxlOjRhMWU2OGQ1N2I0YTljOGYzZTFkYTViNWUxYzkyNDdk",
+            },
+            body: body,
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
+        console.log("registro exitoso");
+      } catch (error) {
+        console.error("Error durante la operación fetch: ", error);
+      }
     }
     // Este es para las i de información de las metas
     function openModalInfo(currentLevel) {
@@ -416,7 +428,7 @@
       overlay.style.opacity = 1;
       modalInfo.style.display = "block";
       overlay.style.display = "block";
-      titleInfoContainer.textContent = `Recompensa del nivel ${currentLevel}`
+      titleInfoContainer.textContent = `Recompensa del nivel ${currentLevel}`;
       document.getElementById("premio-info-container").textContent =
         premios[currentLevel].premio;
       document.getElementById("premio-info-tyc").innerHTML =
@@ -606,7 +618,6 @@
       progressEmptyBox.style.zIndex = -numElementos;
       progressBoxContainer.appendChild(progressEmptyBox);
       progressCaracterContainer.appendChild(caracterContainer);
-  
     };
     // Aquí decide su has failed = true entonce sale en todos el ajolote triste, auqí es donde cambiaría la imagen para cada uno
     function updateModalContent(level, hasFailed) {
@@ -668,7 +679,8 @@
         if (
           level === Nivel &&
           metaActual.includes("transacciones. Tienes hasta") &&
-          comercio.length < 3 && promoSeleccionada.length < 3
+          comercio.length < 3 &&
+          promoSeleccionada.length < 3
         ) {
           // Modificación Cas, el usuario puede ser que pueda elegir desde nivel 1, y solo le salga si está en el nivel actual (Esta es la parte que no me sale :C, que que oslo salga en el nivel actual, me salen en todos )
           modalCloseButton.style.display = ""; // CAmbi Cas, que sioi se vea igual puede regresar
@@ -677,7 +689,7 @@
           modalButton.textContent = "Confirmar";
           comercioSelector.style.display = "flex";
           recompensaContainer.style.marginBottom = "0px";
-          
+
           const images = document.querySelectorAll(".comercios-container div");
           images.forEach((image) => {
             image.addEventListener("click", function () {
@@ -719,18 +731,18 @@
             level == Nivel ? urlPremioActual : premios[level].urlPromo;
         } else if (action === "registrarApi") {
           // agregar lo de regresar a la pantalla y que logge el cutom atribut y el evento Modificación Cas
-          brazeBridge.logClick(promoSeleccionada);
+          // brazeBridge.logClick(promoSeleccionada);
           await inscriptionApiRewards(promoSeleccionada);
-          brazeBridge.logCustomEvent("RPAY_GAMIFICATION_COMERCIO_SELECTED", {
-            PROMOCION: promoSeleccionada,
-          });
-          brazeBridge
-            .getUser()
-            .setCustomUserAttribute(
-              "RPAY_GAMIFICATION_COMERCIO",
-              promoSeleccionada || "20240817"
-            );
-          brazeBridge.requestImmediateDataFlush();
+          // brazeBridge.logCustomEvent("RPAY_GAMIFICATION_COMERCIO_SELECTED", {
+          //   PROMOCION: promoSeleccionada,
+          // });
+          // brazeBridge
+          //   .getUser()
+          //   .setCustomUserAttribute(
+          //     "RPAY_GAMIFICATION_COMERCIO",
+          //     promoSeleccionada || "20240817"
+          //   );
+          // brazeBridge.requestImmediateDataFlush();
           document.querySelector(
             "[data-text-nativemodal]"
           ).textContent = `Elegiste Cashback en ${promoSeleccionada}`;
@@ -742,10 +754,9 @@
           closeNativeModalButton.addEventListener("click", () => {
             nativeModal.style.opacity = 0;
             setTimeout(() => {
-              nativeModal.close()
-          }, 300);
-          }
-          );
+              nativeModal.close();
+            }, 300);
+          });
         }
       });
 
@@ -820,12 +831,9 @@
 
       //  -- Texto Recompensas
 
-     
       // Crear el elemento <p> y establecer su contenido
-  
 
       // Crear el elemento <ul>
-     
 
       // Anidar los elementos <li> dentro de <ul> --- Comentado por Cas para uqe ya no salgan la descripción de los premios en la pantalla pricnipal
       /* ulElement.appendChild(liCashback);
@@ -836,7 +844,6 @@
       rewardsLoop.appendChild(ulElement);*/
 
       // Añadir elementos al DOM
-     
     };
     // Esta es la parte que se va a cambiando según el valor que le de al nivel de los primeros 4 niveles
     // Al hacer clic en el cofre, se abre el modal de información Agregado por Cas
@@ -879,14 +886,14 @@
           container.replaceChild(imgElement, lottiePlayer);
         }
       }
-      if(level > 2 && isFirstTime){
+      if (level > 2 && isFirstTime) {
         setTimeout(() => {
-        // Hacer scroll al final del modal
-        const container = document.querySelector(".caracter-column");
-        container.lastElementChild.scrollIntoView({
-          behavior: "smooth",
-        });
-      }, 650);
+          // Hacer scroll al final del modal
+          const container = document.querySelector(".caracter-column");
+          container.lastElementChild.scrollIntoView({
+            behavior: "smooth",
+          });
+        }, 650);
       }
     }
     // Crea un nuevo nivel (Este s ocmo el general , si mi nivel es menor a 4 toma el de fuirst level y si no, hace un loop y usa la función add reched level loop )
@@ -899,16 +906,14 @@
 
       if (level >= 4) {
         for (let index = 5; index <= level; index++) {
-          //Cambio Cas para Que solo se agregue si mayor a 4
           if (index === level) {
             AddReachedLevelLoop(level, isFirstTime ? true : false, hasFailed);
-            AddEmptyLevelLoop();
-            return;
+          } else {
+            AddReachedLevelLoop(index, false);
           }
-          AddReachedLevelLoop(index, false);
         }
+        AddEmptyLevelLoop();
       }
-      //AddEmptyLevelLoop(); Cambio Cas para Que solo se agregue si mayor a 4
     };
     generateNewLevel(Nivel);
   </script>

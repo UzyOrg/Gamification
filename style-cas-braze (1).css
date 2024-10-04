@@ -266,6 +266,7 @@ a {
   border-radius: 20px;
   min-width: 310px;
   max-width: 320px;
+  min-height: 140px;
   /*overflow-y: scroll;*/
   display: none;
   flex-wrap: wrap;

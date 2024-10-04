@@ -440,6 +440,7 @@ dialog {
 hr {
   border: none;
   height: 1px;
+  margin: 0 auto;
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0),
